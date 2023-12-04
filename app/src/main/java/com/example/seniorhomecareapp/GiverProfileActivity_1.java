@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ImageButton;
@@ -13,40 +14,38 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 
 public class GiverProfileActivity_1 extends AppCompatActivity {
 
     private DatabaseReference databaseReference;
-    String userId = "yourUserId";
+    String userId = "Giver1Id";
     TextView name, pronoun, location, availability, phonenum, email;
     EditText nameEd, pronounEd, locationEd, availabilityEd, phonenumEd, emailEd, bioEd, degreeEd, experienceEd, certificationEd;
     ImageButton bannerEditOn, bannerEditOff;
     String nameInput, pronounInput, locationInput, availabilityInput, phonenumInput, emailInput, bioInput, degreeInput, experienceInput, certificationInput;
 
+    Boolean ifRevisit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//
-//        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
-//
-//        FirebaseDatabase database = FirebaseDatabase.getInstance();
-//
-//        databaseReference = database.getReference("MainProfile").child(userId);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_giverprofile_1);
 
-        name = findViewById(R.id.name_giver);
-        pronoun = findViewById(R.id.pronoun_giver);
-        location = findViewById(R.id.location_giver);
-        availability = findViewById(R.id.availability_giver);
-        phonenum = findViewById(R.id.phonenum_giver);
-        email = findViewById(R.id.email_giver);
+        ifRevisit = (getIntent().getStringExtra("intent from") == "previous");
+
+        if (FirebaseApp.getApps(this).isEmpty()) {
+            FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+        }
+
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        databaseReference = database.getReference(userId).child("MainProfile");
 
         nameEd = findViewById(R.id.name_edit_giver);
         pronounEd = findViewById(R.id.pronoun_edit_giver);
@@ -59,30 +58,33 @@ public class GiverProfileActivity_1 extends AppCompatActivity {
         experienceEd = findViewById(R.id.editExpereince_giver);
         certificationEd = findViewById(R.id.editCertification_giver);
 
-        bannerEditOff = findViewById(R.id.changebanner_button_giver);
-        bannerEditOn = findViewById(R.id.savebanner_button_giver);
-
-        // Initially, set the TextView visible and EditText invisible
-        name.setVisibility(View.VISIBLE);
-        pronoun.setVisibility(View.VISIBLE);
-        location.setVisibility(View.VISIBLE);
-        availability.setVisibility(View.VISIBLE);
-        phonenum.setVisibility(View.VISIBLE);
-        email.setVisibility(View.VISIBLE);
-        bannerEditOff.setVisibility(View.VISIBLE);
-
-        nameEd.setVisibility(View.INVISIBLE);
-        pronounEd.setVisibility(View.INVISIBLE);
-        locationEd.setVisibility(View.INVISIBLE);
-        availabilityEd.setVisibility(View.INVISIBLE);
-        phonenumEd.setVisibility(View.INVISIBLE);
-        emailEd.setVisibility(View.INVISIBLE);
-        bannerEditOn.setVisibility(View.INVISIBLE);
-
+        if (ifRevisit) {
+            databaseReference.get().addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    DataSnapshot dataSnapshot = task.getResult();
+                    if (dataSnapshot != null) {
+                        // Set the retrieved values to the corresponding EditText fields
+                        nameEd.setText(String.valueOf(dataSnapshot.child("name").getValue()));
+                        pronounEd.setText(String.valueOf(dataSnapshot.child("pronouns").getValue()));
+                        locationEd.setText(String.valueOf(dataSnapshot.child("location").getValue()));
+                        availabilityEd.setText(String.valueOf(dataSnapshot.child("availability").getValue()));
+                        phonenumEd.setText(String.valueOf(dataSnapshot.child("phone number").getValue()));
+                        emailEd.setText(String.valueOf(dataSnapshot.child("email").getValue()));
+                        bioEd.setText(String.valueOf(dataSnapshot.child("bio").getValue()));
+                        degreeEd.setText(String.valueOf(dataSnapshot.child("degree").getValue()));
+                        experienceEd.setText(String.valueOf(dataSnapshot.child("experience").getValue()));
+                        certificationEd.setText(String.valueOf(dataSnapshot.child("certification").getValue()));
+                    }
+                } else {
+                    // Print out error message in Logcat
+                    Log.e("Firebase", "Error getting data from Firebase", task.getException());
+                }
+            });
+        }
     }
 
     public void openListView_giver(View view) {
-
+        /* TODO: ADD YOUR CODE HERE - Ken & Kevin */
     }
 
     public void openProfile_giver(View view) {
@@ -90,72 +92,17 @@ public class GiverProfileActivity_1 extends AppCompatActivity {
     }
 
     public void openSaveList_giver(View view) {
-
+        /* TODO: ADD YOUR CODE HERE - Junho */
     }
 
-    public void editBanner_giver(View view) {
-
-        name.setVisibility(View.INVISIBLE);
-        pronoun.setVisibility(View.INVISIBLE);
-        location.setVisibility(View.INVISIBLE);
-        availability.setVisibility(View.INVISIBLE);
-        phonenum.setVisibility(View.INVISIBLE);
-        email.setVisibility(View.INVISIBLE);
-        bannerEditOff.setVisibility(View.INVISIBLE);
-
-        nameEd.setVisibility(View.VISIBLE);
-        pronounEd.setVisibility(View.VISIBLE);
-        locationEd.setVisibility(View.VISIBLE);
-        availabilityEd.setVisibility(View.VISIBLE);
-        phonenumEd.setVisibility(View.VISIBLE);
-        emailEd.setVisibility(View.VISIBLE);
-        bannerEditOn.setVisibility(View.VISIBLE);
-
-    }
-
-    public void saveBannerChange(View view) {
-
+    public void next1_giver(View view) {
+        // Retrieve the values from the EditText views
         nameInput = nameEd.getText().toString();
         pronounInput = pronounEd.getText().toString();
         locationInput = locationEd.getText().toString();
         availabilityInput = availabilityEd.getText().toString();
         phonenumInput = phonenumEd.getText().toString();
         emailInput = emailEd.getText().toString();
-
-        if (nameInput.isEmpty() || pronounInput.isEmpty() || availabilityInput.isEmpty() || phonenumInput.isEmpty() || emailInput.isEmpty()) {
-            // Display a toast message
-            Toast.makeText(GiverProfileActivity_1.this, "Please complete the profile", Toast.LENGTH_SHORT).show();
-        } else {
-
-            /* Later add more validity check */
-            name.setVisibility(View.VISIBLE);
-            pronoun.setVisibility(View.VISIBLE);
-            location.setVisibility(View.VISIBLE);
-            availability.setVisibility(View.VISIBLE);
-            phonenum.setVisibility(View.VISIBLE);
-            email.setVisibility(View.VISIBLE);
-            bannerEditOff.setVisibility(View.VISIBLE);
-
-            nameEd.setVisibility(View.INVISIBLE);
-            pronounEd.setVisibility(View.INVISIBLE);
-            locationEd.setVisibility(View.INVISIBLE);
-            availabilityEd.setVisibility(View.INVISIBLE);
-            phonenumEd.setVisibility(View.INVISIBLE);
-            emailEd.setVisibility(View.INVISIBLE);
-            bannerEditOn.setVisibility(View.INVISIBLE);
-
-            name.setText(nameInput);
-            pronoun.setText(pronounInput);
-            location.setText(locationInput);
-            availability.setText(availabilityInput);
-            phonenum.setText(phonenumInput);
-            email.setText(emailInput);
-        }
-    }
-
-
-    public void next1_giver(View view) {
-        // Retrieve the values from the EditText views
         bioInput = bioEd.getText().toString();
         degreeInput = degreeEd.getText().toString();
         experienceInput = experienceEd.getText().toString();
@@ -173,47 +120,45 @@ public class GiverProfileActivity_1 extends AppCompatActivity {
         inputFromProfile1.add(degreeInput);
         inputFromProfile1.add(experienceInput);
         inputFromProfile1.add(certificationInput);
-//
-//        // Check if any of the input strings is empty
-//        boolean allInputsNotEmpty = true;
-//        for (String input : inputFromProfile1) {
-//            if (input==null || input.isEmpty()) {
-//                allInputsNotEmpty = false;
-//                break; // No need to continue checking once one empty input is found
-//            }
-//        }
-//
-//        if (allInputsNotEmpty) {
 
-             //Write to database under main profile
-//            databaseReference.child("name").setValue(nameInput);
-//            databaseReference.child("pronouns").setValue(pronounInput);
-//            databaseReference.child("location").setValue(locationInput);
-//            databaseReference.child("availability").setValue(availabilityInput);
-//            databaseReference.child("phone number").setValue(phonenumInput);
-//            databaseReference.child("email").setValue(emailInput);
-//            databaseReference.child("bio").setValue(bioInput);
-//            databaseReference.child("degree").setValue(degreeInput);
-//            databaseReference.child("experience").setValue(experienceInput);
-//            databaseReference.child("certification").setValue(certificationInput);
+        // Check if any of the input strings is empty
+        boolean allInputsNotEmpty = true;
+        for (String input : inputFromProfile1) {
+            if (input==null || input.isEmpty()) {
+                allInputsNotEmpty = false;
+                // No need to continue checking once one empty input is found
+                break;
+            }
+        }
 
+        if (allInputsNotEmpty) {
+
+            //Write to database under main profile
+            databaseReference.child("name").setValue(nameInput);
+            databaseReference.child("pronouns").setValue(pronounInput);
+            databaseReference.child("location").setValue(locationInput);
+            databaseReference.child("availability").setValue(availabilityInput);
+            databaseReference.child("phone number").setValue(phonenumInput);
+            databaseReference.child("email").setValue(emailInput);
+            databaseReference.child("bio").setValue(bioInput);
+            databaseReference.child("degree").setValue(degreeInput);
+            databaseReference.child("experience").setValue(experienceInput);
+            databaseReference.child("certification").setValue(certificationInput);
+
+            Toast.makeText(GiverProfileActivity_1.this, "Data Saved Successfully", Toast.LENGTH_SHORT).show();
             // Create an Intent
-            Intent intent = new Intent(GiverProfileActivity_1.this, GiverProfileActivity_2.class);
-
-            // Create a Bundle
-            Bundle bundle = new Bundle();
-
-            // Put the ArrayList<String> into the Bundle
-            bundle.putStringArrayList("profile", inputFromProfile1);
-
-            // Attach the Bundle to the Intent
-            intent.putExtras(bundle);
-
+            Intent nextIntent = new Intent(GiverProfileActivity_1.this, ProfileActivity_2.class);
+            // To Check if the page has been visited before
+            nextIntent.putExtra("intent from", "next");
+            // To maintain data under the same user id
+            nextIntent.putExtra("userId", userId);  // Pass the userId to the next activity
             // Start the next activity
-            startActivity(intent);
-//        } else {
-//            // Display a message to the user indicating that all inputs must be filled
-//            Toast.makeText(GiverProfileActivity_1.this, "Please fill in all the fields", Toast.LENGTH_SHORT).show();
-//        }
+            startActivity(nextIntent);
+            Log.d("3411", "working");
+
+        } else {
+            // Display a message to the user indicating that all inputs must be filled
+            Toast.makeText(GiverProfileActivity_1.this, "Please fill in all the fields", Toast.LENGTH_SHORT).show();
+        }
     }
 }

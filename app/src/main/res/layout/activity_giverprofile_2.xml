@@ -4,57 +4,176 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8F6E9">
+    android:background="#F8F6E9" >
+
+    <!-- list view button -->
+    <ImageButton
+        android:id="@+id/nextButton2_giver"
+        android:layout_width="88dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#00FFFFFF"
+        android:contentDescription="next page"
+        android:onClick="next2_giver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/next_button" />
+
+    <!--list view button-->
+    <ImageButton
+        android:id="@+id/listviewButton_giver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:backgroundTint="#00FFFFFF"
+        android:contentDescription="open list view"
+        android:onClick="openListView_giver"
+        android:src="@drawable/list_uncheck_button"
+        app:layout_constraintEnd_toStartOf="@+id/profileButton_giver"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--profile view button -->
+    <ImageButton
+        android:id="@+id/profileButton_giver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="#00FFFFFF"
+        android:contentDescription="open profile view"
+        android:onClick="openProfile_giver"
+        app:layout_constraintEnd_toStartOf="@+id/savinglistButton_giver"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile_check_button" />
+
+    <!--Saving list view button-->
+    <ImageButton
+        android:id="@+id/savinglistButton_giver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="#00FFFFFF"
+        android:contentDescription="open saving list"
+        android:onClick="openSaveList_giver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/savelist_uncheck_button" />
+
 
     <CalendarView
         android:id="@+id/calendarView"
+        style="@android:style/Widget.Material.CalendarView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="86dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="15dp"
+        android:scrollbarSize="6dp"
         app:layout_constraintEnd_toEndOf="parent"
-       />
-
-
-    <Spinner
-        android:id="@+id/startAmPmSpinner"
-        android:layout_width="97dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="39dp"
-        android:layout_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/startHourSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
-
-    <Spinner
-        android:id="@+id/startHourSpinner"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="61dp"
-        android:layout_marginTop="39dp"
-        android:layout_weight="1"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
-
-    <Spinner
-        android:id="@+id/endAmPmSpinner"
-        android:layout_width="98dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="21dp"
-        android:layout_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/endHourSpinner"
-        app:layout_constraintTop_toBottomOf="@+id/startAmPmSpinner" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/endHourSpinner"
         android:layout_width="106dp"
         android:layout_height="48dp"
-        android:layout_marginStart="61dp"
+        android:layout_marginStart="144dp"
         android:layout_marginTop="20dp"
         android:layout_weight="1"
+        android:backgroundTint="#AA8D3C"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/startHourSpinner" />
+
+    <Spinner
+        android:id="@+id/endAmPmSpinner"
+        android:layout_width="98dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:backgroundTint="#AA8D3C"
+        app:layout_constraintStart_toEndOf="@+id/endHourSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/startAmPmSpinner" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/alike_angular"
+        android:text="From: "
+        android:textColor="#AA8D3C"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+    <Spinner
+        android:id="@+id/startAmPmSpinner"
+        android:layout_width="97dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:backgroundTint="#AA8D3C"
+        app:layout_constraintStart_toEndOf="@+id/startHourSpinner"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/alike_angular"
+        android:text="To: "
+        android:textColor="#AA8D3C"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <Spinner
+        android:id="@+id/startHourSpinner"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:backgroundTint="#AA8D3C"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+
+    <ImageButton
+        android:id="@+id/savetimebutton"
+        android:layout_width="166dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="135dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="135dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="save time change"
+        android:onClick="saveTimeForDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/endHourSpinner"
+        app:srcCompat="@drawable/savetimebutton" />
+
+    <ImageButton
+        android:id="@+id/prevButton2_giver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="25dp"
+        android:backgroundTint="#00FFFFFF"
+        android:contentDescription="previous page"
+        android:onClick="prev2_giver"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/rreturn_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

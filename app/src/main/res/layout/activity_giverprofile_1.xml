@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,19 +8,8 @@
     android:background="#F8F6E9" >
 
     <!--List view button-->
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="-5dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/bio"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileButton_giver"
-        app:srcCompat="@drawable/profile_banner" />
+
+    <!-- list view button -->
 
     <ImageButton
         android:id="@+id/listviewButton_giver"
@@ -60,123 +50,30 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/savelist_uncheck_button" />
 
-
-    <!--Editing pencil icon-->
-    <ImageButton
-        android:id="@+id/changebanner_button_giver"
+    <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="#00FFFFFF"
-        android:contentDescription="edit banner"
-        android:onClick="editBanner_giver"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/bio"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/savinglistButton_giver"
-        app:srcCompat="@drawable/editpencil"
-        tools:visibility="visible" />
-
-    <!-- Regular texts for banner    -->
-    <TextView
-        android:id="@+id/pronoun_giver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="215dp"
-        android:layout_marginEnd="92dp"
-        android:fontFamily="@font/alike_angular"
-        android:text="Pronouns"
-        android:textColor="#534741"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
-
-    <TextView
-        android:id="@+id/location_giver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="15dp"
-        android:drawableStart="@drawable/location"
-        android:drawablePadding="20px"
-        android:fontFamily="@font/alike_angular"
-        android:text="Your Location"
-        android:textColor="#534741"
-        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_giver"
-        tools:visibility="visible" />
-
-    <TextView
-        android:id="@+id/availability_giver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="15dp"
-        android:drawableStart="@drawable/availability"
-        android:drawablePadding="20px"
-        android:fontFamily="@font/alike_angular"
-        android:text="Your Availability"
-        android:textColor="#534741"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/location_giver"
-        tools:visibility="visible" />
-
-    <TextView
-        android:id="@+id/phonenum_giver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="15dp"
-        android:drawableStart="@drawable/phonenumber"
-        android:drawablePadding="20px"
-        android:fontFamily="@font/alike_angular"
-        android:text="Your Phone Number"
-        android:textColor="#534741"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/availability_giver"
-        tools:visibility="visible" />
-
-    <TextView
-        android:id="@+id/name_giver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="210dp"
-        android:layout_marginEnd="20dp"
-        android:fontFamily="@font/abril_fatface"
-        android:text="Name"
-        android:textColor="#534741"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/pronoun_giver"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
-
-    <TextView
-        android:id="@+id/email_giver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="15dp"
-        android:drawableStart="@drawable/email"
-        android:drawablePadding="20px"
-        android:fontFamily="@font/alike_angular"
-        android:text="Your Email Address"
-        android:textColor="#534741"
-        android:textColorHint="#81726A"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phonenum_giver"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@+id/profileButton_giver"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/profile_banner" />
 
     <!-- Edit texts for banner -->
+
     <EditText
         android:id="@+id/name_edit_giver"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="4dp"
         android:ems="10"
         android:fontFamily="@font/abril_fatface"
         android:hint="Name"
@@ -192,15 +89,15 @@
         android:id="@+id/pronoun_edit_giver"
         android:layout_width="87dp"
         android:layout_height="50dp"
-        android:layout_marginTop="85dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="97dp"
+        android:layout_marginEnd="52dp"
         android:ems="10"
         android:fontFamily="@font/alike_angular"
         android:hint="Pronouns"
         android:inputType="text"
         android:textColor="#534741"
         android:textColorHint="#81726A"
-        app:layout_constraintEnd_toStartOf="@+id/savebanner_button_giver"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profileButton_giver" />
 
     <EditText
@@ -208,7 +105,7 @@
         android:layout_width="252dp"
         android:layout_height="49dp"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="-5dp"
+        android:layout_marginTop="-3dp"
         android:drawableStart="@drawable/location"
         android:drawablePadding="30px"
         android:ems="10"
@@ -225,13 +122,13 @@
         android:layout_width="243dp"
         android:layout_height="52dp"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="-5dp"
+        android:layout_marginTop="-7dp"
         android:drawableStart="@drawable/email"
         android:drawablePadding="30px"
         android:ems="10"
         android:fontFamily="@font/alike_angular"
         android:hint="Email Address"
-        android:inputType="text"
+        android:inputType="text|textEmailAddress"
 
         android:textColor="#534741"
         android:textColorHint="#81726A"
@@ -243,13 +140,13 @@
         android:layout_width="250dp"
         android:layout_height="49dp"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="-5dp"
+        android:layout_marginTop="-7dp"
         android:drawableStart="@drawable/phonenumber"
         android:drawablePadding="30px"
         android:ems="10"
         android:fontFamily="@font/alike_angular"
         android:hint="Phone Number"
-        android:inputType="text"
+        android:inputType="phone"
         android:textColor="#534741"
 
         android:textColorHint="#81726A"
@@ -261,7 +158,7 @@
         android:layout_width="244dp"
         android:layout_height="48dp"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="-5dp"
+        android:layout_marginTop="-7dp"
         android:drawableStart="@drawable/availability"
         android:drawablePadding="30px"
         android:ems="10"
@@ -273,25 +170,6 @@
         android:textColorHint="#81726A"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/location_edit_giver" />
-
-    <!--Saving Icon-->
-    <ImageButton
-        android:id="@+id/savebanner_button_giver"
-        android:layout_width="65dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="#00FFFFFF"
-        android:contentDescription="save change"
-        android:onClick="saveBannerChange"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/savinglistButton_giver"
-        app:srcCompat="@drawable/save_button" />
-
-
-
-
-
 
     <!-- Title Texts for experiences -->
     <TextView
@@ -388,7 +266,7 @@
         android:layout_marginTop="-5dp"
         android:ems="10"
         android:fontFamily="@font/alike_angular"
-        android:hint="Share Your BIO"
+        android:hint="Share Your Experience"
         android:inputType="text"
         android:textColorHint="#81726A"
         android:textSize="16sp"
@@ -403,7 +281,7 @@
         android:layout_marginTop="-5dp"
         android:ems="10"
         android:fontFamily="@font/alike_angular"
-        android:hint="Share Your BIO"
+        android:hint="Share Your Certifications"
         android:inputType="text"
         android:textColorHint="#81726A"
         android:textSize="16sp"
@@ -412,7 +290,7 @@
 
     <!--Next button-->
     <ImageButton
-        android:id="@+id/nextButton"
+        android:id="@+id/nextButton1_giver"
         android:layout_width="88dp"
         android:layout_height="54dp"
         android:layout_marginEnd="24dp"
@@ -423,5 +301,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/next_button" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+

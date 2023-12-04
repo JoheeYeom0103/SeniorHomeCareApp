@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SeniorHomeCareApp"
+        android:name=".MyApplication"
         tools:targetApi="31">
         <activity
             android:name=".SigninActivity"
@@ -26,11 +27,15 @@
             android:exported="false">
         </activity>
         <activity
-            android:name=".GiverProfileActivity_2"
+            android:name=".ProfileActivity_2"
             android:exported="false">
         </activity>
         <activity
-            android:name=".ReceiverProfileActivity"
+            android:name=".ProfileActivity_3"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".ReceiverProfileActivity_1"
             android:exported="false">
         </activity>
 

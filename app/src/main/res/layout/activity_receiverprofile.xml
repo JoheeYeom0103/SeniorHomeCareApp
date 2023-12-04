@@ -7,31 +7,136 @@
     android:background="#F8F6E9"
     android:onClick="next2_giver">
 
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="#00FFFFFF"
-        android:contentDescription="edit bio"
-        android:onClick="editBio_receiver"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@drawable/profile_edit_button" />
-
-    <TextView
-        android:id="@+id/medical_receiver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <EditText
+        android:id="@+id/preferenceInput"
+        android:layout_width="267dp"
+        android:layout_height="44dp"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
         android:fontFamily="@font/alike_angular"
-        android:text="Share Your Medical Condition"
+        android:gravity="start|top"
+        android:hint="Share your preferences"
         android:textColor="#534741"
-        android:textSize="16sp"
+        android:textColorHint="#81726A"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bio" />
+        app:layout_constraintTop_toBottomOf="@+id/degree" />
+
+    <ImageView
+        android:id="@+id/profileBanner_receiver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/savinglistButton_receiver"
+        app:srcCompat="@drawable/profile_banner" />
+
+    <EditText
+        android:id="@+id/name_edit_receiver"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="95dp"
+        android:layout_marginEnd="4dp"
+        android:ems="10"
+        android:fontFamily="@font/abril_fatface"
+        android:hint="Name"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textColor="#534741"
+        android:textColorHint="#81726A"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/pronoun_edit_receiver"
+        app:layout_constraintTop_toBottomOf="@+id/profileButton_receiver" />
+
+    <EditText
+        android:id="@+id/pronoun_edit_receiver"
+        android:layout_width="87dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="97dp"
+        android:layout_marginEnd="52dp"
+        android:ems="10"
+        android:fontFamily="@font/alike_angular"
+        android:hint="Pronouns"
+        android:inputType="text"
+        android:textColor="#534741"
+        android:textColorHint="#81726A"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profileButton_receiver" />
+
+    <EditText
+        android:id="@+id/location_edit_receiver"
+        android:layout_width="252dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="-3dp"
+        android:drawableStart="@drawable/location"
+        android:drawablePadding="30px"
+        android:ems="10"
+        android:fontFamily="@font/alike_angular"
+        android:hint="Your Location"
+        android:inputType="text"
+        android:textColor="#534741"
+        android:textColorHint="#81726A"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_edit_receiver" />
+
+    <EditText
+        android:id="@+id/availability_edit_receiver"
+        android:layout_width="244dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="-7dp"
+        android:drawableStart="@drawable/availability"
+        android:drawablePadding="30px"
+        android:ems="10"
+        android:fontFamily="@font/alike_angular"
+        android:hint="Availability(Date, Time)"
+
+        android:inputType="text"
+        android:textColor="#534741"
+        android:textColorHint="#81726A"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/location_edit_receiver" />
+
+    <EditText
+        android:id="@+id/phonenum_edit_receiver"
+        android:layout_width="250dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="-7dp"
+        android:drawableStart="@drawable/phonenumber"
+        android:drawablePadding="30px"
+        android:ems="10"
+        android:fontFamily="@font/alike_angular"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        android:textColor="#534741"
+
+        android:textColorHint="#81726A"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/availability_edit_receiver" />
+
+    <EditText
+        android:id="@+id/email_edit_receiver"
+        android:layout_width="243dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="-7dp"
+        android:drawableStart="@drawable/email"
+        android:drawablePadding="30px"
+        android:ems="10"
+        android:fontFamily="@font/alike_angular"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress"
+
+        android:textColor="#534741"
+        android:textColorHint="#81726A"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phonenum_edit_receiver" />
 
     <TextView
         android:id="@+id/bio"
@@ -44,33 +149,20 @@
         android:textColor="#AA8D3C"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/profileBanner_receiver" />
 
     <TextView
         android:id="@+id/degree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="35dp"
         android:fontFamily="@font/abril_fatface"
         android:text="PREFERENCES"
         android:textColor="#AA8D3C"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/medical_receiver" />
-
-    <TextView
-        android:id="@+id/preference_receiver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="15dp"
-        android:fontFamily="@font/alike_angular"
-        android:text="Share Your Preferences"
-        android:textColor="#534741"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/degree" />
+        app:layout_constraintTop_toBottomOf="@+id/medicalInput" />
 
     <ImageButton
         android:id="@+id/listviewButton_receiver"
@@ -109,111 +201,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/profile_check_button" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.578"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/savinglistButton_receiver"
-        app:srcCompat="@drawable/profile_banner" />
-
-    <TextView
-        android:id="@+id/pronoun_receiver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="-335dp"
-        android:fontFamily="@font/alike_angular"
-        android:text="Pronouns"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/changebanner_button_giver" />
-
-    <TextView
-        android:id="@+id/location_receiver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="-210dp"
-        android:drawableStart="@drawable/location"
-        android:drawablePadding="20px"
-        android:fontFamily="@font/alike_angular"
-        android:text="Your Location"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/name_receiver" />
-
-    <TextView
-        android:id="@+id/availability_receiver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="-230dp"
-        android:drawableStart="@drawable/availability"
-        android:drawablePadding="20px"
-        android:fontFamily="@font/alike_angular"
-        android:text="Your Availability"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/location_receiver" />
-
-    <TextView
-        android:id="@+id/phonenum_receiver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="-260dp"
-        android:drawableStart="@drawable/phonenumber"
-        android:drawablePadding="20px"
-        android:fontFamily="@font/alike_angular"
-        android:text="Your Phone Number"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/availability_receiver" />
-
-    <TextView
-        android:id="@+id/name_receiver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-210dp"
-        android:layout_marginEnd="10dp"
-        android:fontFamily="@font/abril_fatface"
-        android:text="Your Name"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/pronoun_receiver"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <ImageButton
-        android:id="@+id/changebanner_button_giver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-255dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="#00FFFFFF"
-        android:contentDescription="edit banner"
-        android:onClick="editBanner_receiver"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:srcCompat="@drawable/editpencil" />
-
-    <TextView
-        android:id="@+id/email_receiver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="-300dp"
-        android:layout_marginTop="-40dp"
-        android:drawableStart="@drawable/email"
-        android:drawablePadding="20px"
-        android:fontFamily="@font/alike_angular"
-        android:text="Your Email Address"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
     <ImageButton
         android:id="@+id/imageButton7"
         android:layout_width="wrap_content"
@@ -221,9 +208,25 @@
         android:layout_marginEnd="35dp"
         android:layout_marginBottom="35dp"
         android:backgroundTint="#00FFFFFF"
+        android:contentDescription="next page"
         android:onClick="next1_receiver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/next_button" />
+
+    <EditText
+        android:id="@+id/medicalInput"
+        android:layout_width="271dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:fontFamily="@font/alike_angular"
+        android:gravity="start|top"
+        android:hint="Share your medical condition"
+        android:textColor="#534741"
+        android:textColorHint="#81726A"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
