@@ -1,8 +1,9 @@
 package com.example.seniorhomecareapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,6 +18,7 @@ public class giverprofile_list extends AppCompatActivity {
     private RecyclerView profileRecyclerView;
     private giverProfile_adapter profileAdapter;
     private boolean isHighlighted = false;
+    ImageButton openFilterCareGiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,28 @@ public class giverprofile_list extends AppCompatActivity {
         profileAdapter = new giverProfile_adapter(dummyProfiles);
         profileRecyclerView.setAdapter(profileAdapter);
 
+
+        openFilterCareGiver = findViewById(R.id.imageView4);
+        openFilterCareGiver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //doesnt sent to Kevin page:
+                Intent intent = new Intent(giverprofile_list.this, CareGiverPage.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
+    /*
+    public void openCareGiverPage() {
+        Intent intent = new Intent(giverprofile_list.this, CareGiverPage.class);
+        startActivity(intent);
+    }
+
+     */
+
 
     private List<Profile> createDummyProfiles() {
         List<Profile> profiles = new ArrayList<>();
