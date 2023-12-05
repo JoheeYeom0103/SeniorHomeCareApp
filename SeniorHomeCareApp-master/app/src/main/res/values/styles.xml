@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyCalendarView" parent="@android:style/Widget.CalendarView">
+        <item name="android:dateTextAppearance">@style/MyDateTextAppearance</item>
+    </style>
+
+    <style name="MyDateTextAppearance" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">#FF0000</item> <!-- Change this to the color you want -->
+    </style>
+
+</resources>
