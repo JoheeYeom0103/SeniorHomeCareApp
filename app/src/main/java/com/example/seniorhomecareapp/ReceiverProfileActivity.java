@@ -9,10 +9,23 @@ public class ReceiverProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receiverprofile);
+
+
+        // Ken stuff
+        ImageButton listviewButtonGiver = findViewById(R.id.listviewButton_receiver);
+        listviewButtonGiver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle the click event
+                openListView_receiver();
+            }
+        });
+        //end of ken fragment
     }
 
     public void openListView_receiver() {
-
+        Intent intent = new Intent(this,receiver_listView_Activity.class);
+        startActivity(intent);
     }
 
     public void openProfile_receiver() {
