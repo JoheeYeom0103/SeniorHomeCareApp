@@ -115,4 +115,9 @@ public class ProfileActivity_3 extends AppCompatActivity {
         startActivity(backIntent);
     }
 
+    public void openListview (View view){
+        Intent intent = new Intent(this,receiver_listView_Activity.class);
+        startActivity(intent);
+    }
+
 }

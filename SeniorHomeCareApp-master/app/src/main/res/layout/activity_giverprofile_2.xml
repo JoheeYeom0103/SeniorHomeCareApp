@@ -28,7 +28,7 @@
         android:layout_marginTop="23dp"
         android:backgroundTint="#00FFFFFF"
         android:contentDescription="open list view"
-        android:onClick="openListView_giver"
+        android:onClick="openListview"
         android:src="@drawable/list_uncheck_button"
         app:layout_constraintEnd_toStartOf="@+id/profileButton_giver"
         app:layout_constraintTop_toTopOf="parent" />

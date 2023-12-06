@@ -166,5 +166,10 @@ public class ProfileActivity_2 extends AppCompatActivity {
         // Start the next activity
         startActivity(backIntent);
     }
+
+    public void openListview (View view){
+        Intent intent = new Intent(this,receiver_listView_Activity.class);
+        startActivity(intent);
+    }
 }
 

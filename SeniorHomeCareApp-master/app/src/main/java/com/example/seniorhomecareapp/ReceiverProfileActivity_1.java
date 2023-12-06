@@ -74,7 +74,8 @@ public class ReceiverProfileActivity_1 extends AppCompatActivity {
     }
 
     public void openListView_receiver(View view) {
-        /* TODO: ADD YOUR CODE HERE - Ken & Kevin */
+        Intent intent = new Intent(this,receiver_listView_Activity.class);
+        startActivity(intent);
     }
 
     public void openProfile_receiver(View view) {

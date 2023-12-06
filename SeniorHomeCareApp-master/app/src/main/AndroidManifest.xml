@@ -38,7 +38,38 @@
             android:name=".ReceiverProfileActivity_1"
             android:exported="false">
         </activity>
-
+        <activity
+            android:name=".receiver_listView_Activity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".CareGiverPage"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".CareReceiverPage"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".giverprofile_list"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".giverProfile_adapter"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".giverResultPage"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".Profile"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".receiver_profile_Adapter"
+            android:exported="false">
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
