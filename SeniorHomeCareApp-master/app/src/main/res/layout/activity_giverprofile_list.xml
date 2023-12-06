@@ -37,7 +37,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
-        app:srcCompat="@drawable/rreturn_button"
+        app:srcCompat="@drawable/menu_button"
         android:onClick="onReturnButtonClick" />
 
 
