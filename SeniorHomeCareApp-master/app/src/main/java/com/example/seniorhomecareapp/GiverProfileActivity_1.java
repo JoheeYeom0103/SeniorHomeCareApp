@@ -108,7 +108,7 @@ public class GiverProfileActivity_1 extends AppCompatActivity {
 
     public void openListView_giver() {
         //Ken method
-        Intent intent = new Intent(this, giverprofile_list.class);
+        Intent intent = new Intent(this, receiver_listView_Activity.class);
         startActivity(intent);
     }
 
