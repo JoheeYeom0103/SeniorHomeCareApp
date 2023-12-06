@@ -1,22 +1,15 @@
 package com.example.seniorhomecareapp;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.snackbar.Snackbar;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.view.View;
-
-import androidx.core.view.WindowCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.seniorhomecareapp.databinding.ActivityReceiverListViewBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +18,8 @@ public class receiver_listView_Activity extends AppCompatActivity {
     private RecyclerView profileRecyclerView;
     private receiver_profile_Adapter receiverProfileAdapter;
     private boolean isHighlighted = false;
+
+    ImageButton openFilterCareGiver, openFilterCareReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +33,15 @@ public class receiver_listView_Activity extends AppCompatActivity {
         List<receiver_profile> dummyProfilesrec = createDummyProfiles();
         receiverProfileAdapter = new receiver_profile_Adapter(dummyProfilesrec);
         profileRecyclerView.setAdapter(receiverProfileAdapter);
+
+        openFilterCareGiver = findViewById(R.id.imageView4);
+        openFilterCareGiver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(receiver_listView_Activity.this, CareReceiverPage.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

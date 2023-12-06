@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#F8F6E9"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -20,7 +21,7 @@
         android:padding="0dp"
         android:scrollbars="vertical" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/menu"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -30,7 +31,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/menu_button" />
 
-    <ImageView
+    <ImageButton
+        android:id="@+id/imageView4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toEndOf="@+id/menu"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile_edit_button" />
+    <ImageButton
         android:id="@+id/imageView3"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -40,7 +50,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/list_check_button" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/profile"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -50,7 +60,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/profile_check_button" />
 
-    <ImageView
+    <ImageButton
         android:id="@+id/savelist"
         android:layout_width="50dp"
         android:layout_height="50dp"

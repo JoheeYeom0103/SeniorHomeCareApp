@@ -1,7 +1,9 @@
 package com.example.seniorhomecareapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +19,7 @@ public class giverprofile_list extends AppCompatActivity {
     private RecyclerView profileRecyclerView;
     private giverProfile_adapter profileAdapter;
     private boolean isHighlighted = false;
+    Button openFilterCareGiver, openFilterCareReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +29,13 @@ public class giverprofile_list extends AppCompatActivity {
         profileRecyclerView = findViewById(R.id.GiverRecyclerView);
         profileRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Populate with dummy data (replace this with real data retrieval)
+
         List<Profile> dummyProfiles = createDummyProfiles();
         profileAdapter = new giverProfile_adapter(dummyProfiles);
         profileRecyclerView.setAdapter(profileAdapter);
+
+
+
 
     }
 
