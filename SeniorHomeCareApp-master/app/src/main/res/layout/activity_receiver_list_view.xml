@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#F8F6E9"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -26,12 +27,19 @@
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
-        android:backgroundTint="#00FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/menu_button"
-        android:onClick="openFilter"/>
+        app:srcCompat="@drawable/menu_button" />
 
+    <ImageButton
+        android:id="@+id/imageView4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toEndOf="@+id/menu"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/profile_edit_button" />
     <ImageButton
         android:id="@+id/imageView3"
         android:layout_width="50dp"
@@ -63,6 +71,6 @@
         app:srcCompat="@drawable/savelist_uncheck_button" />
 
 
+
+
 </RelativeLayout>
-
-
