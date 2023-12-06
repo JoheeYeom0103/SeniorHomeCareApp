@@ -71,6 +71,16 @@ public class ReceiverProfileActivity_1 extends AppCompatActivity {
                 }
             });
         }
+        // Ken stuff
+        ImageButton listviewButtonGiver = findViewById(R.id.listviewButton_receiver);
+        listviewButtonGiver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle the click event
+                openListView_receiver();
+            }
+        });
+        //end of ken fragment
     }
 
     public void openListView_receiver(View view) {
