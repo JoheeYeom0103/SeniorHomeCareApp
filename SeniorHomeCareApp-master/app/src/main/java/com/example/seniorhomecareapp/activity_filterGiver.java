@@ -19,7 +19,7 @@ public class activity_filterGiver extends AppCompatActivity {
 
         editTextLocation = findViewById(R.id.editTextLocation);
         editTextBio = findViewById(R.id.editTextBio);
-
+        /*
         Button applyFilterButton = findViewById(R.id.applyFilterButton);
         applyFilterButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -27,8 +27,10 @@ public class activity_filterGiver extends AppCompatActivity {
                 applyFilter();
             }
         });
-    }
 
+         */
+    }
+    /*
     private void applyFilter() {
         // Get the filter criteria
         String locationFilter = editTextLocation.getText().toString();
@@ -42,4 +44,6 @@ public class activity_filterGiver extends AppCompatActivity {
         // Close the filter activity
         finish();
     }
+
+     */
 }

@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +24,7 @@ public class giverprofile_list extends AppCompatActivity implements giverProfile
     private boolean isHighlighted = false;
     ImageButton openFilterCareGiver;
     ImageButton savelistButton;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +37,9 @@ public class giverprofile_list extends AppCompatActivity implements giverProfile
         selectedProfiles = new ArrayList<>(); // Initialize the selectedProfiles list
 
         // Populate with dummy data (replace this with real data retrieval)
+        databaseReference = FirebaseDatabase.getInstance().getReference();
         List<Profile> dummyProfiles = createDummyProfiles();
-        profileAdapter = new giverProfile_adapter(dummyProfiles, this); // Pass the activity as the listener
+        profileAdapter = new giverProfile_adapter(dummyProfiles, databaseReference); // Pass the activity as the listener
         profileRecyclerView.setAdapter(profileAdapter);
 
 
