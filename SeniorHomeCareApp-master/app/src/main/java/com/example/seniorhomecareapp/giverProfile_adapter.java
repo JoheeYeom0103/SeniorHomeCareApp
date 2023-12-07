@@ -1,6 +1,4 @@
 package com.example.seniorhomecareapp;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,13 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class giverProfile_adapter extends RecyclerView.Adapter<giverProfile_adapter.ViewHolder> {
-    //KEN class for care giver
-    private List<Profile> profiles;
+    private List<Profile> originalProfiles;
+    private List<Profile> filteredProfiles;
     private List<Profile> selectedProfiles;
     private OnLikedStateChangeListener onLikedStateChangeListener;
 
     public giverProfile_adapter(List<Profile> profiles, OnLikedStateChangeListener listener) {
-        this.profiles = profiles;
+        this.originalProfiles = new ArrayList<>(profiles);
+        this.filteredProfiles = new ArrayList<>(profiles);
         this.selectedProfiles = new ArrayList<>();
         this.onLikedStateChangeListener = listener;
     }
@@ -36,7 +35,7 @@ public class giverProfile_adapter extends RecyclerView.Adapter<giverProfile_adap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         // Bind data to each item in the RecyclerView
-        Profile profile = profiles.get(position);
+        Profile profile = filteredProfiles.get(position); // Use the filtered list
         holder.nameTextView.setText(profile.getName());
         holder.timeTextView.setText(profile.getTime());
         holder.locationTextView.setText(profile.getLocation());
@@ -72,15 +71,32 @@ public class giverProfile_adapter extends RecyclerView.Adapter<giverProfile_adap
 
     @Override
     public int getItemCount() {
-        // Return the number of items in the profiles list
-        return profiles.size();
+        // Return the number of items in the filteredProfiles list
+        return filteredProfiles.size();
     }
 
     public List<Profile> getSelectedProfiles() {
         return selectedProfiles;
     }
 
-    // ViewHolder class to hold references to the views for each item
+    public void applyFilter(String locationFilter, String bioFilter) {
+        filteredProfiles.clear();
+
+        // Convert location to lowercase for case-insensitive matching
+        String lowercaseLocationFilter = locationFilter.toLowerCase();
+
+        for (Profile profile : originalProfiles) {
+            String lowercaseLocation = profile.getLocation().toLowerCase();
+                filteredProfiles.add(profile);
+
+            if (lowercaseLocation.contains(lowercaseLocationFilter) && profile.getBio().contains(bioFilter)) {
+                filteredProfiles.add(profile);
+            }
+        }
+
+        notifyDataSetChanged(); // Notify the adapter that the data set has changed
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView nameTextView;
         TextView bioTextView;
@@ -107,14 +123,29 @@ public class giverProfile_adapter extends RecyclerView.Adapter<giverProfile_adap
                     @Override
                     public void onClick(View view) {
                         // Toggle the highlighted state
-                        boolean isHighlighted = !selectedProfiles.contains(profiles.get(getAdapterPosition()));
+                        boolean isHighlighted = !selectedProfiles.contains(filteredProfiles.get(getAdapterPosition()));
 
                         // Update the image based on the highlighted state
                         likeButton.setImageResource(isHighlighted ? R.drawable.save : R.drawable.unsave);
 
                         // Notify the listener about the liked state change and pass the profile data
                         if (onLikedStateChangeListener != null) {
-                            onLikedStateChangeListener.onLikedStateChanged(profiles.get(getAdapterPosition()), isHighlighted);
+                            onLikedStateChangeListener.onLikedStateChanged(filteredProfiles.get(getAdapterPosition()), isHighlighted);
+                        }
+                    }
+                });
+                itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            // Get the selected profile
+                            Profile selectedProfile = filteredProfiles.get(position);
+
+                            // Navigate to ProfileDetailsActivity with the selected profile
+                            Intent intent = new Intent(view.getContext(), ProfileDetailsActivity.class);
+                            intent.putExtra("profile", selectedProfile);
+                            view.getContext().startActivity(intent);
                         }
                     }
                 });
@@ -122,7 +153,6 @@ public class giverProfile_adapter extends RecyclerView.Adapter<giverProfile_adap
         }
     }
 
-    // Define an interface for the liked state change listener
     public interface OnLikedStateChangeListener {
         void onLikedStateChanged(Profile profile, boolean isLiked);
     }

@@ -1,6 +1,8 @@
 package com.example.seniorhomecareapp;
 
-public class Profile {
+import java.io.Serializable;
+
+public class Profile  implements Serializable {
     private String name;
     private String bio;
     private String time;
@@ -49,3 +51,4 @@ public class Profile {
     public boolean getVerified(){return verified;}
 
 }
+

@@ -1,0 +1,47 @@
+<!-- activity_filter.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filter by Location:"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewLocation"
+        android:layout_marginTop="34dp"
+        android:hint="Enter location" />
+
+    <TextView
+        android:id="@+id/textViewBio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Filter by Bio:"
+        android:textSize="18sp"
+        android:layout_below="@id/editTextLocation"
+        android:layout_marginTop="16dp"/>
+
+    <EditText
+        android:id="@+id/editTextBio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewBio"
+        android:layout_marginTop="70dp"
+        android:hint="Enter bio" />
+
+    <Button
+        android:id="@+id/applyFilterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextBio"
+        android:layout_marginTop="300dp"
+        android:text="Apply Filter" />
+</RelativeLayout>

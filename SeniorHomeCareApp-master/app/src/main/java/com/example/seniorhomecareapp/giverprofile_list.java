@@ -16,7 +16,7 @@ public class giverprofile_list extends AppCompatActivity implements giverProfile
     //Ken file!
 
     private RecyclerView profileRecyclerView;
-    private giverProfile_adapter profileAdapter;
+    public giverProfile_adapter profileAdapter;
     private List<Profile> selectedProfiles; // Changed to instance variable
     private boolean isHighlighted = false;
     ImageButton openFilterCareGiver;
@@ -37,25 +37,36 @@ public class giverprofile_list extends AppCompatActivity implements giverProfile
         profileAdapter = new giverProfile_adapter(dummyProfiles, this); // Pass the activity as the listener
         profileRecyclerView.setAdapter(profileAdapter);
 
+
         openFilterCareGiver = findViewById(R.id.imageView4);
         openFilterCareGiver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //doesn't send to Kevin page:
-                Intent intent = new Intent(giverprofile_list.this, CareGiverPage.class);
+                Intent intent = new Intent(giverprofile_list.this, receiver_profile_Adapter.class);
                 startActivity(intent);
             }
         });
+        /*
+        openFilterCareGiver = findViewById(R.id.menu);
+        openFilterCareGiver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openFilterPage();
+            }
+        });
 
-
+         */
     }
-
-    public void onReturnButtonClick(View view) {
-        // Add code to navigate back to the main page
-        Intent intent = new Intent(this, GiverProfileActivity_1.class);
+    /*
+    public void openFilterPage() {
+        Intent intent = new Intent(this, activity_filterGiver.class);
         startActivity(intent);
     }
-    private List<Profile> createDummyProfiles() {
+
+     */
+
+    public List<Profile> createDummyProfiles() {
         List<Profile> profiles = new ArrayList<>();
 
         profiles.add(new Profile("Name: John Doe","Location: Glenmore","Time: 7 am to 7 pm", "Registered Nurse",4,true, true));
